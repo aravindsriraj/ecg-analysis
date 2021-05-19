@@ -1,0 +1,81 @@
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+</head>
+<style>
+    table {
+        width:100%;
+    }
+    dataframe {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+        position: relative;
+        top:85px;
+
+}
+
+.dataframe td, .dataframe th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.dataframe tr:nth-child(even){background-color: #f2f2f2;}
+
+.dataframe tr:hover {background-color: #ddd;}
+
+.dataframe th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+<body class="bg-success">
+<h1 class="text-center text-danger display-2 bg-warning">ECG Statistics</h1>
+<h1 class="text-center text-info display-4 bg-warning">From {{ start }} to {{ end }} Seconds</h1>
+<table border="1" class="dataframe">
+    <tbody>
+    <tr>
+        <th>Stats</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td><strong>Mean</strong></td>
+        <td>{{ d["mean"] }}</td>
+    </tr>
+    <tr>
+        <td><strong>Median</strong></td>
+        <td>{{ d["median"] }}</td>
+    </tr>
+    <tr>
+        <td><strong>Standard Deviation</strong></td>
+        <td>{{ d["std"] }}</td>
+    </tr>
+    <tr>
+        <td><strong>Q1</strong></td>
+        <td>{{ d["q1"] }}</td>
+    </tr>
+    <tr>
+        <td><strong>Q2</strong></td>
+        <td>{{ d["q2"] }}</td>
+    </tr>
+    <tr>
+        <td><strong>Q3</strong></td>
+        <td>{{ d["q3"] }}</td>
+    </tr>
+    <tr>
+        <td><strong>IQR</strong></td>
+        <td>{{ d["iqr"] }}</td>
+    </tr>
+    </tbody>
+</table>
+<h1 class="text-center text-light">Box Plot</h1>
+<div>
+    {% autoescape off %}
+    {{ div }}
+    {% endautoescape %}
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+    
+  </head>
+  <body>
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+    <div class="sidebar overflow-auto scroll">
+        <div class="container p-4">
+            <h1 class="text-white mt-5">ECG Analysis</h1>
+            <h3 class="text-white my-3">Upload a file</h3>
+
+            <form method="POST" action="data" enctype="multipart/form-data">
+
+            <div class="mb-3">
+              <label for="formFile" class="form-label text-white">Choose File</label>
+              <input class="form-control" type="file" id="formFile" name="mat">
+              <input type="submit" class="btn btn-danger mt-2">
+            </div>
+            </form>
+
+            <h3 class="text-white">Dataset</h3>
+            <a href="/data" class="btn btn-info mb-2" role="button">Show Dataset</a>
+
+            <h3 class="text-white">Show visualization of ECG</h3>
+            <a href="/graph" class="btn btn-success mb-2" role="button">Show visualization</a>
+
+            <h3 class="text-white">Enter Interval (Sec)</h3>
+
+            <form method="POST" action="graph2" enctype="multipart/form-data">
+            <label for="n1" class="text-white">Start: </label>
+            <input type="number" id="n1" class="form-control form-control-sm mb-3" name="start">
+            
+            <label for="n2" class="text-white">End: </label>
+            <input type="number" id="n2" class="form-control form-control-sm mb-4" name="end">
+            
+            <h3 class="text-white">ECG at time interval</h3>
+{#            <a href="" class="btn btn-primary mb-2" role="button">Show at time interval</a>#}
+                <input type="submit" class="btn btn-primary mb-4" id="submit">
+            </form>
+
+            <h3 class="text-white">Statistics</h3>
+            <form method="POST" action="stats">
+
+
+                <input type="submit" class="btn btn-warning mt-3" value="Show Statistics">
+            </form>
+            
+        </div>
+    </div>
+
+    <h1 class="display-5 text-center m-5 text-white">ECG Statistics</h1>
+
+
+  </body>
+</html>
